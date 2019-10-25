@@ -1,0 +1,22 @@
+{
+  "language": "C",
+  "name": "dgres",
+  "title": "DKL-progress",
+  "prefix": "dgres",
+  "version": "0.1.0.0",
+  "license": "GPL-3.0",
+  "description": "Progress bar in C",
+  "homepage": "https://github.com/Denpus/dgres",
+  "dependencies": {
+  },
+  "functions": {
+    "dgres_new": "extern int dgres_new(char *txt, int ntxt)",
+    "dgres_tnew": "extern int dgres_tnew(size_t *thread, char *txt, int ntxt)",
+    "dgres_live": "extern int dgres_live(char *txt, int ntxt)",
+    "dgres_end": "extern int dgres_end(size_t thread)"
+  },
+  "keywords": [
+    "progress",
+    "bar"
+  ]
+}
