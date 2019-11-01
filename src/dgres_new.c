@@ -20,6 +20,8 @@ int dgres_new(dgres_t *dgres) {
     const int delay_ms = 1;
     const int nprint   = 4;
 
+    fflush(dgres->stream);
+
     while (1) {
         cnt = (cnt + 1) % nprint;
 
@@ -29,8 +31,8 @@ int dgres_new(dgres_t *dgres) {
             fputc(i < cnt ? '.' : ' ', dgres->stream);
         }
 
-        fflush(dgres->stream);
         fputc('\r', dgres->stream);
+        fflush(dgres->stream);
 
         sleep(delay_ms);
     }

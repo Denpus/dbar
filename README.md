@@ -1,4 +1,4 @@
-dgres v0.1.1.0
+dgres v0.1.1.1
 ====================================
 Progress bar in C
 
@@ -9,8 +9,9 @@ Progress bar in C
 
 # Features
 
-* Support run in thread
-* Live loading
+1. Support run in thread (pthread lib) 
+2. Live loading 
+3. Is available examples usage 
 
 # Api
 

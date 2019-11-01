@@ -13,9 +13,14 @@
 #include <dgres.h>
 
 int main(void) {
-    int err = 0;
+    int     err   = 0;
+    dgres_t dgres = {
+            .stream = stdout,
+            .ntxt = 7,
+            .txt = "Loading"
+    };
 
-    dgres_new("Loading", 7);
+    dgres_new(&dgres);
 
     return err;
 }

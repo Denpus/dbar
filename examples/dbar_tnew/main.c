@@ -24,12 +24,14 @@ int main(void) {
             .txt = "Loading thread"
     };
 
+    fprintf(dgres.stream, "Wait 5 seconds\n");
+
     dgres_tnew(&dgres);
 
     sleep(5);
 
     dgres_end(&dgres);
-    printf("end loading");
+    fprintf(dgres.stream, "Hello world");
     fflush(dgres.stream);
     sleep(3);
 

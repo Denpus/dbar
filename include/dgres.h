@@ -9,7 +9,7 @@
  * Created  :   05.09.19 11:17
  * Homepage :   https://github.com/Denpus/dgres
  * License  :   GPL-3.0
- * Version  :   0.1.1.0
+ * Version  :   0.1.1.1
  *
  * Copyright (C) Denis Karabadjak <denkar>
  */
