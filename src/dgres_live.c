@@ -12,12 +12,9 @@
 
 #include "dgres_live.h"
 #include <stdio.h>
-#include <time.h>
-#include <pthread.h>
 #include <unistd.h>
-#include <memory.h>
 
-int dgres_live(char *txt, int ntxt) {
+int dgres_live(dgres_t *dgres) {
     int       err      = 0;
     int       cnt      = 0;
     const int delay_ms = 1;
@@ -26,14 +23,14 @@ int dgres_live(char *txt, int ntxt) {
     while (1) {
         cnt = (cnt + 1) % nprint;
 
-        fwrite(txt, (size_t) ntxt, 1, stdout);
+        fwrite(dgres->txt, (size_t) dgres->ntxt, 1, dgres->stream);
 
         for (int i = 0; i < nprint; ++i) {
-            fputc(i < cnt ? '.' : ' ', stdout);
+            fputc(i < cnt ? '.' : ' ', dgres->stream);
         }
 
-        fflush(stdout);
-        fputc('\r', stdout);
+        fflush(dgres->stream);
+        fputc('\r', dgres->stream);
 
         sleep(delay_ms);
     }

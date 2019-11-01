@@ -12,4 +12,6 @@
 
 #pragma once
 
-extern int dgres_live(char *txt, int ntxt);
+#include "dgres_t.h"
+
+extern int dgres_live(dgres_t *dgres);

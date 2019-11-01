@@ -17,17 +17,21 @@
 #include <pthread.h>
 
 int main(void) {
-    int    err = 0;
-    size_t thread;
+    int     err   = 0;
+    dgres_t dgres = {
+            .stream = stdout,
+            .ntxt = 14,
+            .txt = "Loading thread"
+    };
 
-    dgres_tnew(&thread, "Loading", 7);
+    dgres_tnew(&dgres);
 
-    sleep(3);
-
-    dgres_end(thread);
-    printf("end loading");
-    fflush(stdout);
     sleep(5);
+
+    dgres_end(&dgres);
+    printf("end loading");
+    fflush(dgres.stream);
+    sleep(3);
 
     return err;
 }
