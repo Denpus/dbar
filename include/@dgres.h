@@ -16,7 +16,8 @@
 
 #pragma once
 
+@include("../headers/dgres_t.h" "#include <")
 @include("../headers/dgres_new.h" "extern ")
-@include("../headers/dgres_tnew.h" "#include <")
+@include("../headers/dgres_tnew.h" "extern ")
 @include("../headers/dgres_live.h" "extern ")
-@include("../headers/dgres_end.h" "#include <")
+@include("../headers/dgres_end.h" "extern ")

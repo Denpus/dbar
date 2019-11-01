@@ -16,24 +16,17 @@
 #include <unistd.h>
 #include <memory.h>
 
-static char _loadtxt[100];
-static int  _ntxt = 0;
-
-static void *net_iloop(void *item) {
-    dgres_new(_loadtxt, _ntxt);
+static void *net_iloop(void *dgres) {
+    dgres_new(dgres);
 
     return NULL;
 }
 
-int dgres_tnew(size_t *thread, char *txt, int ntxt) {
+int dgres_tnew(dgres_t *dgres) {
     int       err      = 0;
-    pthread_t *pthread = (pthread_t *) thread;
-    char      *_txt    = _loadtxt;
-    _ntxt = ntxt;
+    pthread_t *pthread = (pthread_t *) &dgres->thread;
 
-    memcpy(_txt, txt, (size_t) ntxt);
-
-    if (pthread_create(pthread, NULL, net_iloop, NULL)) {
+    if (pthread_create(pthread, NULL, net_iloop, dgres)) {
         err = 1;
     }
 

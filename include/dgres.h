@@ -9,22 +9,28 @@
  * Created  :   05.09.19 11:17
  * Homepage :   https://github.com/Denpus/dgres
  * License  :   GPL-3.0
- * Version  :   0.1.0.0
+ * Version  :   0.1.1.1
  *
  * Copyright (C) Denis Karabadjak <denkar>
  */
 
 #pragma once
 
-extern int dgres_new(char *txt, int ntxt);
+#include <pthread.h>
+#include <stdio.h>
 
-#include <stddef.h>
+typedef struct dgres_s {
+    pthread_t thread;
+    int       ntxt;
+    char      *txt;
+    FILE      *stream;
+} dgres_t;
 
-extern int dgres_tnew(size_t *thread, char *txt, int ntxt);
+extern int dgres_new(dgres_t *dgres);
 
-extern int dgres_live(char *txt, int ntxt);
+extern int dgres_tnew(dgres_t *dgres);
 
-#include <stddef.h>
+extern int dgres_live(dgres_t *dgres);
 
-extern int dgres_end(size_t thread);
+extern int dgres_end(dgres_t *dgres);
 

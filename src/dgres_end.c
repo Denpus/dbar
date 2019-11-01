@@ -14,10 +14,10 @@
 #include <pthread.h>
 #include <stdio.h>
 
-int dgres_end(size_t thread) {
+int dgres_end(dgres_t *dgres) {
     int err = 0;
 
-    fflush(stdout);
+    fflush(dgres->stream);
 
-    return pthread_cancel(thread);
+    return pthread_cancel(dgres->thread);
 }

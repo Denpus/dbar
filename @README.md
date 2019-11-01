@@ -9,9 +9,8 @@
 * @key (https://@.) @end
 
 # Features
-
-* Support run in thread
-* Live loading
+@for(features)
+@key\. @. @end
 
 # Api
 

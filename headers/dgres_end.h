@@ -12,6 +12,6 @@
 
 #pragma once
 
-#include <stddef.h>
+#include "dgres_t.h"
 
-extern int dgres_end(size_t thread);
+extern int dgres_end(dgres_t *dgres);
